@@ -5,7 +5,11 @@ try:
 except ImportError:
     from PyQt4 import QtCore
 
-__all__ = ['kill_qthread', 'QT', 'QTKiller']
+__all__ = [
+    "kill_qthread", 
+    "QT", 
+    "QTKiller"
+    ]
 
 
 def kill_qthread(t):
@@ -26,7 +30,7 @@ class QT(QtCore.QThread):
 
     def run(self):
         self._return = self._func(*self._args, **self._kwargs)
-        self.emit(QtCore.SIGNAL('thread_finished()'))
+        self.emit(QtCore.SIGNAL("thread_finished()"))
 
     def get_return(self):
         return self._return
@@ -42,8 +46,8 @@ class QTKiller(QtCore.QThread):
         i = 0
         while i < self._timeout:
             time.sleep(1)
-            self.emit(QtCore.SIGNAL('thread_running()'))
+            self.emit(QtCore.SIGNAL("thread_running()"))
             i += 1
-        self.emit(QtCore.SIGNAL('kill_qthread()'))
+        self.emit(QtCore.SIGNAL("kill_qthread()"))
         while not self._target_t.isFinished():
             time.sleep(0.1)
