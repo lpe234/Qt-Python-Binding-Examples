@@ -1,14 +1,21 @@
-﻿# A short guide for Qt Designer 
+﻿# A Short Guide for Qt Designer 
+
+## Synopsis
+
+How to use Qt Designer in PySide project?
 
  - draw UI with Qt Designer, save it into foo.ui
- - convert .ui to .py by pyuic4
+ - convert foo.ui to foo.py by pyuic4
  - import it in your main.py
+ - fix compatible problem in foo.py
+
+## Demo
 
 pyuic4 is provider by 'py27-pyside-tools' on Mac OS X MacPorts.
 
     pyuic4 add_group.ui -o add_group.py
 
-import and use add_group.py
+import add_group.py in your main.py:
 
 ```
 #!/usr/bin/env python
@@ -52,7 +59,7 @@ Supported signatures:
 
 Solution:
 
-replace `from PyQt4 import QtCore, QtGui` with
+edit add_group.py(generated from add_group.ui), replace `from PyQt4 import QtCore, QtGui` with
 
 ```
 try:
