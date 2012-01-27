@@ -3,10 +3,9 @@
 """
 Custom QListView
 
-
 This script demonstrates
-
  - DND item
+ - DND item from window A to window B
 
 Test environment:
     Mac OS X 10.6.8
@@ -179,9 +178,11 @@ class Demo(QtGui.QWidget):
             self.list_view.keyboardSearch(text)
             idx = self.list_view.currentIndex()
             if idx.isValid():
-                if len(self.data_sources) - 1 >= idx.row():
-                    self.data_sources.pop(idx.row())
-                    # notify it force to update view ..
+                if len(self.list_view.data_sources) - 1 >= idx.row():
+                    self.list_view.data_sources.pop(idx.row())
+                    self.list_view.update()
+
+
 
     def show_and_raise(self):
         self.show()
