@@ -43,7 +43,6 @@ class Demo(QtGui.QWidget):
         print "themeName:", QtGui.QIcon.themeName()
         print "hasThemeIcon:", QtGui.QIcon.hasThemeIcon("edit-undo")
         print
-        
 
         my_online = QtGui.QIcon("/path/to/my_online.png")
         
@@ -68,6 +67,5 @@ if __name__ == "__main__":
 
     demo = Demo()
     demo.show_and_raise()
-
 
     sys.exit(app.exec_())

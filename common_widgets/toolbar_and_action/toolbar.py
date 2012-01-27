@@ -22,6 +22,24 @@ except ImportError:
     from PyQt4 import QtCore
     from PyQt4 import QtGui
 
+def config_theme_path():
+    if sys.platform != "darwin":
+        return
+
+    theme_name = str(QtGui.QIcon.themeName())
+
+    if theme_name != "Oxygen":
+        QtGui.QIcon.setThemeName("Oxygen")
+
+
+    search_paths = list(QtGui.QIcon.themeSearchPaths())
+
+    custom_path = "/opt/local/share/icons"
+    if custom_path not in search_paths:
+        search_paths.append(custom_path)
+
+    QtGui.QIcon.setThemeSearchPaths(search_paths)
+
 
 class Demo(QtGui.QMainWindow):
     def __init__(self):
@@ -30,7 +48,10 @@ class Demo(QtGui.QMainWindow):
         self.setGeometry(x, y, w, h)
         self.setUnifiedTitleAndToolBarOnMac(True)
 
-        exit_a = QtGui.QAction(QtGui.QIcon('exit.png'), 'Exit', self)
+        config_theme_path()
+        icon = QtGui.QIcon.fromTheme('application-exit')
+
+        exit_a = QtGui.QAction(icon, 'Exit', self)
         exit_a.setShortcut('Ctrl+Q')
 #        self.connect(exit_a, QtCore.SIGNAL('triggered()'), QtCore.SLOT('close()'))
         exit_a.triggered.connect(self.close)

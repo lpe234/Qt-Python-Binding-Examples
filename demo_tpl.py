@@ -8,7 +8,6 @@ Test environment:
 """
 import sys
 
-
 try:
     from PySide import QtCore
     from PySide import QtGui
@@ -23,7 +22,6 @@ class Demo(QtGui.QWidget):
         
         x, y, w, h = 500, 200, 300, 400
         self.setGeometry(x, y, w, h)
-
 
     def show_and_raise(self):
         self.show()
