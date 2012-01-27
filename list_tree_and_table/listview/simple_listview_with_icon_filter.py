@@ -3,9 +3,11 @@
 """
 Custom QListView
 
+
 This script demonstrates
+
  - custom icon for item
- - construct a container for simple file manager(such as Finder/Explorer/Nautilus)
+ - change item data at runtime
 
 Test environment:
     Mac OS X 10.6.8
@@ -19,12 +21,15 @@ import glob
 import os
 import sys
 
-try:
-    from PySide import QtCore
-    from PySide import QtGui
-except ImportError:
-    from PyQt4 import QtCore
-    from PyQt4 import QtGui
+#try:
+#    from PySide import QtCore
+#    from PySide import QtGui
+#except ImportError:
+#    from PyQt4 import QtCore
+#    from PyQt4 import QtGui
+
+from PyQt4 import QtCore
+from PyQt4 import QtGui
 
 
 class ListModel(QtCore.QAbstractListModel):
@@ -33,9 +38,21 @@ class ListModel(QtCore.QAbstractListModel):
         self.os_list = os_list
 
     def rowCount(self, parent):
+#        print ">>> rowCount"
+#        print 'parent:', parent,
+#        print ', row:', parent.row(),
+#        print ', column:', parent.column(),
+#        print ', internalPointer:', parent.internalPointer()
+        
         return len(self.os_list)
 
     def data(self, index, role = QtCore.Qt.DisplayRole):
+#        print ">>> data"
+#        print 'isValid:', index.isValid(),
+#        print ', row:', index.row(),
+#        print ', column:', index.column(),
+#        print ', is Qt.DisplayRole:', role == QtCore.Qt.DisplayRole
+
         if not index.isValid():
             return None
 
@@ -74,13 +91,32 @@ class Demo(QtGui.QWidget):
         self.list_view.setSpacing(5)
         self.list_view.setUniformItemSizes(True)
 
-        # view mode
-        # uncomment follow line, to construct a container for simple file manager(such as Finder/Explorer/Nautilus)
+        # view
 #        self.list_view.setViewMode(QtGui.QListView.IconMode)
 
         # interactive
         self.list_view.setSelectionMode(QtGui.QAbstractItemView.ExtendedSelection)
 
+        # more advanced controlling on selection
+#        self.selection_model = self.list_view.selectionModel()
+#        self.selection_model.currentChanged.connect(self._selection_model_currentChanged)
+
+
+        self.lineedit = QtGui.QLineEdit(self)
+        self.lineedit.move(5, 260)
+        self.lineedit.textEdited.connect(self._lineedit_textEdited)
+
+
+    def _lineedit_textEdited(self, text):
+        if not text:
+            self.list_view.clearSelection()
+        else:
+            self.list_view.keyboardSearch(text)
+            idx = self.list_view.currentIndex()
+            if idx.isValid():
+                if len(self.data_sources) - 1 >= idx.row():
+                    self.data_sources.pop(idx.row())
+                    self.list_view.update()
 
     def show_and_raise(self):
         self.show()

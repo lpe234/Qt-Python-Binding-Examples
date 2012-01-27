@@ -46,7 +46,7 @@ class Demo(QtGui.QMainWindow):
         exit_menu.addAction(exit_a)
 
 
-        qt_mac_set_dock_menu
+#        qt_mac_set_dock_menu
 
 
         say_a = QtGui.QAction('Say', self)

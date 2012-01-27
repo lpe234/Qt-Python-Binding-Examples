@@ -95,7 +95,6 @@ class ListView(QtGui.QListView):
         self.setDropIndicatorShown(True)
 
         # interactive in DND mode
-#        self.setMovement(QtGui.QListView.Free)
         self.setSelectionMode(QtGui.QAbstractItemView.ExtendedSelection)
         self.setDragDropMode(QtGui.QAbstractItemView.DragDrop)
         self.setDragEnabled(True)
@@ -127,37 +126,9 @@ class Demo(QtGui.QWidget):
         x, y, w, h = 5, 5, 290, 250
         self.list_view.setGeometry(x, y, w, h)
 
-
-#        self.setAcceptDrops(True)
-
     def show_and_raise(self):
         self.show()
         self.raise_()
-
-
-#    def dragEnterEvent(self, drag_enter_evt):
-#        print 'demo::dragEnterEvent'
-#        mime_data = drag_enter_evt.mimeData()
-#
-##        if self.list_view.geometry().contains(drag_enter_evt.pos()):
-##            return
-#
-#        if mime_data.hasFormat('text/plain'):
-#            drag_enter_evt.acceptProposedAction()
-#
-#    def dragMoveEvent(self, evt):
-#        print 'demo::dragMoveEvent', evt.pos()
-#
-#        if self.geometry().contains(evt.pos()):
-#            evt.ignore()
-#
-#    def dropEvent(self, drop_evt):
-#        mime_data = drop_evt.mimeData()
-#        if mime_data.hasFormat('text/plain'):
-#
-#            print 'text:', mime_data.data('text/plain')
-#
-#            drop_evt.accept()
 
 
 if __name__ == "__main__":
