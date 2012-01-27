@@ -14,15 +14,33 @@ References:
 import sys
 import platform
 
-try:
+args = sys.argv[1:]
+if not args:
+    try:
+        import PySide
+        from PySide import QtCore
+        print "Using PySide ..."
+        print
+
+    except ImportError:
+        PySide = None
+        from PyQt4 import QtCore
+
+elif args[0] == "PySide":
     import PySide
     from PySide import QtCore
     print "Using PySide ..."
     print
-except ImportError:
+
+elif args[0] == "PyQt4":
     PySide = None
     from PyQt4 import QtCore
-
+else:
+    print "Usage:"
+    print "     python %s" % sys.argv[0]
+    print "     python %s PySide" % sys.argv[0]
+    print "     python %s PyQt4" % sys.argv[0]
+    print
 
 try:
     import sip
@@ -32,7 +50,7 @@ except ImportError:
 
 def get_qt_version():
     if not PySide:
-        return QtCore.QT_VERSION_STR
+        return getattr(QtCore, "QT_VERSION_STR")
     else:
         return QtCore.__version__
 
