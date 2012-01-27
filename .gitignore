@@ -11,3 +11,4 @@ resource_compiler/*.qrc
 html_render/
 qcommons/foo/
 windows/foo/
+.zw_*
