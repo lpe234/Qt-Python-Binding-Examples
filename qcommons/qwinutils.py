@@ -215,9 +215,9 @@ class CustomSheetWin(QtGui.QWidget):
         self.emit(QtCore.SIGNAL("sheet_window_close( QWidget * )"), self)
         return QtGui.QWidget.closeEvent(self, evt)
 
-    def close_and_emit(self, signal_name = "sheet_window_close_with_accept( QWidget * )"):
-        self.emit(QtCore.SIGNAL(signal_name), self)
+    def emit_and_close(self, signal_name = "sheet_window_close_with_accept( QWidget * )"):
         self.close()
+        self.emit(QtCore.SIGNAL(signal_name), self)
 
     def keyPressEvent(self, evt):
         close_win_cmd_w = (evt.key() == QtCore.Qt.Key_W and evt.modifiers() == QtCore.Qt.ControlModifier)
