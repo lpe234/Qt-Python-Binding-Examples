@@ -5,7 +5,7 @@ Build-in dialogs demo
 
 # NOTE: 'title' is invalid on Mac OS X 10.6.* .
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 http://www.pyside.org/docs/pyside/PySide/QtGui/QMessageBox.html

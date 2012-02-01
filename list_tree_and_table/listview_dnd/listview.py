@@ -8,7 +8,7 @@ This script demonstrates
  - DND item
  - sort item
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 Docs

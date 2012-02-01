@@ -25,7 +25,7 @@ Requirements:
 NOTE: you **have to** install Python 2.7, PySide and qt4-mac by MacPorts,
 		install py2app and its requirements by **manual**
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 

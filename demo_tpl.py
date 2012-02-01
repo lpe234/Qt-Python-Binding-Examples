@@ -3,17 +3,15 @@
 """
 demo template
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 """
 import sys
 
 try:
-    from PySide import QtCore
-    from PySide import QtGui
+    from PySide import QtCore, QtGui
 except ImportError:
-    from PyQt4 import QtCore
-    from PyQt4 import QtGui
+    from PyQt4 import QtCore, QtGui
 
 
 class Demo(QtGui.QWidget):

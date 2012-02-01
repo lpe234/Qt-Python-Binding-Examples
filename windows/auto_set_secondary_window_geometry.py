@@ -3,7 +3,7 @@
 """
 auto set the geometry of secondary window base on primary window geometry 
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
     
 """

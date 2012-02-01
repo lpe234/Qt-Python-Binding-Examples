@@ -3,7 +3,7 @@
 """
 lay out in Gird demo
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 """
 import sys

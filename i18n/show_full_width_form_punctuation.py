@@ -3,7 +3,7 @@
 """
 show Full width form punctuation
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 http://developer.qt.nokia.com/forums/viewthread/12102/        

@@ -3,7 +3,7 @@
 """
 horizontally layout
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
     
 """

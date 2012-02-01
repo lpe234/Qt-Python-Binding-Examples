@@ -3,7 +3,7 @@
 """
 notify primary window/main thread sheet window has closed
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
     
 """

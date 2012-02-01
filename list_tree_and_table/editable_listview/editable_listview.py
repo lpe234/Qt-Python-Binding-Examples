@@ -3,7 +3,7 @@
 """
 editable item in QListView
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 http://developer.qt.nokia.com/doc/qt-4.7/qabstractlistmodel.html

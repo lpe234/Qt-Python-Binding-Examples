@@ -3,7 +3,7 @@
 """
 Label
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 http://www.pyside.org/docs/pyside/PySide/QtGui/QLabel.html

@@ -3,7 +3,7 @@
 """
 copy the text of button in DND
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 http://doc.qt.nokia.com/latest/dnd.html

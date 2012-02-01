@@ -3,7 +3,7 @@
 """
 play audio via system call
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
     Linux 3.0 KDE 4.6.5
 

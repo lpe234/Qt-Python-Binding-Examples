@@ -3,7 +3,7 @@
 """
 using build-in/factory icon
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 Install Oxygen icon on Mac OS X via MacPorts:

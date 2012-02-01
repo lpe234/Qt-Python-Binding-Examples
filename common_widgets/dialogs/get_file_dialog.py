@@ -3,7 +3,7 @@
 """
 Provides a dialog widget for selecting a file
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 http://www.pyside.org/docs/pyside/PySide/QtGui/QFileDialog.html

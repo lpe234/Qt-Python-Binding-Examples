@@ -7,7 +7,7 @@ This script demonstrates
  - custom icon for item
  - construct a container for simple file manager(such as Finder/Explorer/Nautilus)
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 Docs

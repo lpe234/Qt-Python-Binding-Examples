@@ -3,7 +3,7 @@
 """
 use a ridiculous workaround way make image/jpeg works in .app
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 Reference:

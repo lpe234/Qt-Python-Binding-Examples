@@ -2,7 +2,7 @@
 """
 auto place secondary window next to primary window
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 http://www.pyside.org/docs/pyside/PySide/QtGui/QWidget.html

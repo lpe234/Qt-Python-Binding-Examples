@@ -3,7 +3,7 @@
 """
 IM sign in window
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 https://bitbucket.org/shugelee/iblah/

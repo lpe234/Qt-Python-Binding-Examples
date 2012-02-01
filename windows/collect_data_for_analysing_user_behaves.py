@@ -3,7 +3,7 @@
 """
 collect data for analysing user behaves
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
     
 """

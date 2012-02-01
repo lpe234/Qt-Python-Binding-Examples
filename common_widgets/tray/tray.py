@@ -3,7 +3,7 @@ System tray icon and Prompt on PyQt/PySide application exit
 
 NOTE: We don't catch closeEvent cause by command-q on Mac.
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 """
 import json

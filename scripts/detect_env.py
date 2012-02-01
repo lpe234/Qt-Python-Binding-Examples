@@ -2,7 +2,7 @@
 """
 Detect platform name and SIP/Python/PyQt/PySide version.
 
-Test environment:
+Tested environment:
 
     Mac OS X 10.6.8
     Debian Linux Testing

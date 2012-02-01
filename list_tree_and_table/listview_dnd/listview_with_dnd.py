@@ -7,7 +7,7 @@ This script demonstrates
  - DND item
  - DND item from window A to window B
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 Docs

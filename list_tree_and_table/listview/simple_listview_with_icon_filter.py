@@ -9,7 +9,7 @@ This script demonstrates
  - custom icon for item
  - change item data at runtime
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 Docs

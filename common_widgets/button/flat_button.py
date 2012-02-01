@@ -3,7 +3,7 @@
 """
 flat button
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 http://doc.qt.nokia.com/latest/qpushbutton.html#flat-prop

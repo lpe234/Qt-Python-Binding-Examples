@@ -3,7 +3,7 @@
 """
 disable highlight focused widget
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 http://stackoverflow.com/questions/1987546/qt4-stylesheets-and-focus-rect

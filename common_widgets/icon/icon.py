@@ -3,7 +3,7 @@
 """
 icon
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 http://doc.trolltech.com/latest/qicon.html

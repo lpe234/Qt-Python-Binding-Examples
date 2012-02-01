@@ -3,7 +3,7 @@
 """
 Cocoa textured window
 
-Test environment:
+Tested environment:
     Mac OS X 10.6.8
 
 http://stackoverflow.com/questions/1413337/cocoa-textured-window-in-qt
