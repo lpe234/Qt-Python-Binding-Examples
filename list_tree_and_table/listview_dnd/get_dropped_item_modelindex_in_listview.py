@@ -1,12 +1,7 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 """
-Custom QListView
-
-This script demonstrates
-
- - DND item
- - sort item
+Get dropped item's ModelIndex in QListView
 
 Tested environment:
     Mac OS X 10.6.8
@@ -14,9 +9,7 @@ Tested environment:
 Docs
 
  - http://doc.qt.nokia.com/latest/model-view-programming.html#using-drag-and-drop-with-item-views
-
- - Qt - QAbstractItemView, PySide - QListView
- - Qt - QAbstractItemModel, PySide - QAbstractItemModel
+ - file:///opt/local/share/doc/qt4/html/qabstractitemmodel.html#dropMimeData
 """
 import glob
 import os
@@ -61,6 +54,16 @@ class ListModel(QtCore.QAbstractListModel):
     def supportedDropActions(self):
         return QtCore.Qt.MoveAction
 
+    def dropMimeData(self, data, action, row, column, parent_idx):
+        """
+        NOTICE: Although the specified row, column
+        and parent indicate the location of an item in the model where the operation ended,
+        it is the responsibility of the view to
+        provide a suitable location for where the data should be inserted.
+        """
+#        print data, action, row, column, parent_idx
+        return super(ListModel, self).dropMimeData(data, action, row, column, parent_idx)
+
     def mimeData(self, idxes):
         # NOTE: create mime data from ancestor method for fixed crash bug on PySide
         mime_data = super(ListModel, self).mimeData(idxes)
@@ -104,9 +107,11 @@ class ListView(QtGui.QListView):
 
         if mime_data.hasFormat('text/plain'):
             buf = mime_data.data('text/plain')
-            print 'pos:', evt.pos()
             print "source == self:", evt.source() == self
             print 'mime data:', repr(buf)
+
+            target_idx = self.indexAt(evt.pos())
+            print "dropped at row:%d, col:%d:" % (target_idx.row(), target_idx.column())
 
         return super(ListView, self).dropEvent(evt)
 
