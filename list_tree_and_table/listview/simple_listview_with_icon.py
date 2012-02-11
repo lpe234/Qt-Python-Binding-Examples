@@ -79,6 +79,7 @@ class Demo(QtGui.QWidget):
 #        self.list_view.setViewMode(QtGui.QListView.IconMode)
 
         # interactive
+#        self.list_view.setSelectionMode(QtGui.QAbstractItemView.MultiSelection)
         self.list_view.setSelectionMode(QtGui.QAbstractItemView.ExtendedSelection)
 
 

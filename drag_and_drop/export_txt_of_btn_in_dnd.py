@@ -7,6 +7,7 @@ Tested environment:
     Mac OS X 10.6.8
 
 http://doc.qt.nokia.com/latest/dnd.html
+file:///opt/local/share/doc/qt4/html/dnd.html
 """
 import sys
 
@@ -64,7 +65,7 @@ class Demo(QtGui.QMainWindow):
             drag_enter_evt.acceptProposedAction()
 
     def dragMoveEvent(self, evt):
-#        print 'dragMoveEvent', evt.pos()
+        print 'dragMoveEvent', evt.pos()
 
         if self.btn.geometry().contains(evt.pos()):
             evt.ignore()
