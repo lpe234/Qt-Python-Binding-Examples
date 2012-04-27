@@ -1,5 +1,9 @@
 # Resources About Qt GUI Framework Python Binding
 
+Lots of simple and Pythonic PySide demos,  
+this project is released under the permissive 3-clause BSD license.
+
+
 Qt FEATURES, you should read these first of all
 
  - [Qt and Key Technologies](http://doc.qt.nokia.com/latest/technology-apis.html)
