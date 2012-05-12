@@ -15,12 +15,9 @@ parent_path = os.path.dirname(PWD)
 if parent_path not in sys.path:
     sys.path.insert(0, parent_path)
 
-try:
-    from PySide import QtCore
-    from PySide import QtGui
-except ImportError:
-    from PyQt4 import QtCore
-    from PyQt4 import QtGui
+
+from PySide import QtCore
+from PySide import QtGui
 
 
 class DropArea(QtGui.QLabel):
@@ -41,7 +38,7 @@ class DropArea(QtGui.QLabel):
 
         evt.acceptProposedAction()
 #        self.emit changed(evt.mimeData())
-        self.emit(QtCore.SIGNAL("changed(mime_data)"), evt.mimeData())
+        self.emit(QtCore.SIGNAL("changed( QString )"), evt.mimeData())
 
     def dragMoveEvent(self, evt):
         evt.acceptProposedAction()

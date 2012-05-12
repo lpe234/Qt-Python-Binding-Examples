@@ -6,20 +6,15 @@ Install Oxygen icon on Mac OS X via MacPorts:
     sudo port install oxygen-icons
 
 """
-import sys
-
-try:
-    from PySide import QtGui
-    from PySide import QtCore
-except ImportError:
-    from PyQt4 import QtGui
-    from PyQt4 import QtCore
-
-
 __all__ = [
     "config_theme_path",
     "icon2pix",
 ]
+
+
+import sys
+
+from PySide import QtCore, QtGui
 
 
 def config_theme_path():

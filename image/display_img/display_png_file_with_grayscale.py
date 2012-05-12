@@ -5,24 +5,14 @@ display png file with GrayScaled feature
 
 Tested environment:
     Mac OS X 10.6.8
-
-http://www.pyside.org/docs/pyside/PySide/QtGui/QPixmap.html
 """
 import os
 import sys
+from PySide import QtGui
 
 PWD = os.path.dirname(os.path.realpath(__file__))
 parent_path = os.path.dirname(PWD)
-if parent_path not in sys.path:
-    sys.path.insert(0, parent_path)
-
-
-try:
-    from PySide import QtCore
-    from PySide import QtGui
-except ImportError:
-    from PyQt4 import QtCore
-    from PyQt4 import QtGui
+IM_RES_PATH = os.path.join(os.path.dirname(parent_path), "image_resources")
 
 
 def to_grayscaled(path):
@@ -46,20 +36,23 @@ class Demo(QtGui.QWidget):
         x, y, w, h = 500, 200, 300, 400
         self.setGeometry(x, y, w, h)
 
-#        default_portrait_path = os.path.join(PWD, 'resources', 'default_avatar', 'online-50x50.png')
-        default_portrait_path = os.path.join(PWD, 'online-50x50.png')
+        online_path = os.path.join(IM_RES_PATH, 'online-50x50.png')
         self.label = QtGui.QLabel('online', self)
-        pix = QtGui.QPixmap(default_portrait_path)
+        pix = QtGui.QPixmap(online_path)
         self.label.setPixmap(pix)
         self.label.move(10, 10)
 
-#        default_portrait_path = os.path.join(PWD, 'resources', 'default_avatar', 'online-50x50.png')
-        default_portrait_path = os.path.join(PWD, 'offline-50x50.png')
+        offline_path = os.path.join(IM_RES_PATH, 'offline-50x50.png')
         self.label = QtGui.QLabel('offline', self)
-        pix = QtGui.QPixmap(default_portrait_path)
-#        pix = to_grayscaled(default_portrait_path)
+        pix = QtGui.QPixmap(offline_path)
         self.label.setPixmap(pix)
         self.label.move(10, 70)
+
+        online_grayscale_path = os.path.join(IM_RES_PATH, 'online-50x50.png')
+        self.label = QtGui.QLabel('offline', self)
+        pix = to_grayscaled(online_grayscale_path)
+        self.label.setPixmap(pix)
+        self.label.move(10, 130)
 
 
     def show_and_raise(self):

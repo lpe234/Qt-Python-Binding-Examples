@@ -1,11 +1,7 @@
 #/usr/bin/env python
 import sys
 
-try:
-    from PySide import QtGui
-except ImportError:
-    from PyQt4 import QtGui
-
+from PySide import QtGui
 
 app = QtGui.QApplication(sys.argv)
 

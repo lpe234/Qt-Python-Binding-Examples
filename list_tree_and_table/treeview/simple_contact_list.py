@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import sys
-from PyQt4 import QtGui, QtCore
+from PySide import QtGui, QtCore
 
 FIRST_COLUMN = 0
 

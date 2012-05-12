@@ -8,15 +8,6 @@ Tested environment:
 http://doc.qt.nokia.com/latest/qdesktopwidget.html
 http://www.pyside.org/docs/pyside/PySide/QtGui/QWidget.html
 """
-import json
-import os
-
-try:
-    from PySide import QtCore
-    from PySide import QtGui
-except ImportError:
-    from PyQt4 import QtCore
-    from PyQt4 import QtGui
 
 __all__ = [
     "auto_set_geometry",
@@ -25,6 +16,12 @@ __all__ = [
     "CustomWin",
     "CustomSheetWin",
     ]
+
+
+import json
+import os
+
+from PySide import QtGui, QtCore
 
 
 class AutoSaveGeo(QtGui.QMainWindow):
@@ -347,8 +344,6 @@ def test_use_auto_set_secondary_win_geometry():
     sys.exit(app.exec_())
 
 
-if __name__ == "__main__":
-    import sys
-
+#if __name__ == "__main__":
 #    test_use_custom_dlg()
-    test_use_auto_set_secondary_win_geometry()
+#    test_use_auto_set_secondary_win_geometry()

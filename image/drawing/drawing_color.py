@@ -4,7 +4,7 @@
 # colors.py
 
 import sys, random
-from PyQt4 import QtGui, QtCore
+from PySide import QtGui, QtCore
 
 
 class Example(QtGui.QWidget):

@@ -3,9 +3,9 @@ import sys
 #try:
 #    from PySide import QtGui, QtCore
 #except ImportError:
-#    from PyQt4 import QtGui, QtCore
+#    from PySide import QtGui, QtCore
 
-from PyQt4 import QtGui, QtCore
+from PySide import QtGui, QtCore
 
 FIRST_COLUMN = 0
 

@@ -1,15 +1,13 @@
-import time
-
-try:
-    from PySide import QtCore
-except ImportError:
-    from PyQt4 import QtCore
-
 __all__ = [
-    "kill_qthread", 
-    "QT", 
+    "kill_qthread",
+    "QT",
     "QTKiller"
     ]
+
+
+import time
+
+from PySide import QtCore
 
 
 def kill_qthread(t):
