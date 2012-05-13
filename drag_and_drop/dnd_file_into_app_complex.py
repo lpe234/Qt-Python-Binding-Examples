@@ -1,19 +1,20 @@
 #!/usr/bin/env python
 #-*- coding:utf-8 -*-
 """
-demo template
+DND file into application
 
 Tested environment:
     Mac OS X 10.6.8
-    
+
+This script copy from official PySide/PyQt examples.
 """
 import os
 import sys
 
-PWD = os.path.dirname(os.path.realpath(__file__))
-parent_path = os.path.dirname(PWD)
-if parent_path not in sys.path:
-    sys.path.insert(0, parent_path)
+#PWD = os.path.dirname(os.path.realpath(__file__))
+#parent_path = os.path.dirname(PWD)
+#if parent_path not in sys.path:
+#    sys.path.insert(0, parent_path)
 
 
 from PySide import QtCore
