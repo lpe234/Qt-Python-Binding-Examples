@@ -11,7 +11,7 @@ from PyQt4 import QtGui
 from PyQt4 import QtWebKit
 from PyQt4 import QtNetwork
 
-fn = os.path.splitext(__file__)[0]
+fn = os.path.basename(os.path.splitext(__file__)[0])
 PATH_TEMP = os.path.join(tempfile.gettempdir(), fn)
 if not os.path.exists(PATH_TEMP):
     os.makedirs(PATH_TEMP)
@@ -110,7 +110,6 @@ class App(QtGui.QMainWindow):
         self.webview.load(QtCore.QUrl(self.url))
 
     def webview_loadProgress(self, progress):
-        print 'webview_loadProgress', progress
         self.progress_bar.setValue(progress)
 
     def webview_loadStarted(self):
