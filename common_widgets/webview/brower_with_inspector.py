@@ -11,6 +11,9 @@ from PyQt4 import QtGui
 from PyQt4 import QtWebKit
 from PyQt4 import QtNetwork
 
+
+PWD = os.path.dirname(os.path.realpath(__file__))
+
 fn = os.path.basename(os.path.splitext(__file__)[0])
 PATH_TEMP = os.path.join(tempfile.gettempdir(), fn)
 if not os.path.exists(PATH_TEMP):
@@ -55,7 +58,15 @@ class App(QtGui.QMainWindow):
         self.progressbar.setMaximum(100)
 
         self.webview = QtWebKit.QWebView(self)
-        self.webview.setGeometry(0, 22, w, h)
+        qsettings = self.webview.settings()
+        qsettings.setAttribute(QtWebKit.QWebSettings.DeveloperExtrasEnabled, True)
+
+        self.inspector = QtWebKit.QWebInspector(self)
+        self.inspector.setPage(self.webview.page())
+        self.inspector.setGeometry(0, h - 200, w, 200)
+        self.inspector.setVisible(True)
+
+        self.webview.setGeometry(0, 22, w, h - 200)
         self.connect(self.webview, QtCore.SIGNAL("loadStarted()"), self.webview_loadStarted)
         self.connect(self.webview, QtCore.SIGNAL("loadFinished(bool)"), self.webview_loadFinished)
         self.connect(self.webview, QtCore.SIGNAL('loadProgress(int)'), self.webview_loadProgress)
@@ -123,6 +134,23 @@ class App(QtGui.QMainWindow):
             with open(save_to, 'w') as f:
                 print 'entry body write into %s' % save_to
                 f.write(to_str(self.entry_body))
+
+            # wget http://code.jquery.com/jquery-2.1.1.min.js
+            path_jq = os.path.join(PWD, 'jquery-2.1.1.min.js')
+            js_code = file(path_jq).read()
+            mainFrame = self.webview.page().mainFrame()
+
+            print mainFrame
+            for frame in mainFrame.childFrames():
+                print frame
+
+            js_code = """$(document).ready(function(){
+$('head').after('<b>hello jquery!</b>');
+            });
+            """
+            mainFrame.evaluateJavaScript(js_code)
+
+
 
 if __name__ == '__main__':
     app = QtGui.QApplication(sys.argv)

@@ -38,7 +38,7 @@ class Example(QtGui.QWidget):
         if self.step >= 100:
             self.timer.stop()
             return
-        self.step = self.step + 1
+        self.step = self.step +  1
         self.pbar.setValue(self.step)
 
     def doAction(self):
@@ -52,7 +52,6 @@ class Example(QtGui.QWidget):
 
 
 if __name__ == '__main__':
-
     app = QtGui.QApplication(sys.argv)
     ex = Example()
     assert ex != None
